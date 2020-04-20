@@ -1,14 +1,23 @@
 <template>
   <div id="app">
+    <main-nav-bar />
     <router-view/>
-    <img src="~@assets/img/recommend_bg.jpg" alt="">
+    <main-footer />
   </div>
 </template>
 
 <script>
+
+
+  import MainNavBar from "@/components/content/mainnavbar/MainNavBar";
+  import MainFooter from "@/components/content/mainfooter/MainFooter";
+
   export default {
     name: "App",
-    components: {}
+    components: {
+      MainFooter,
+      MainNavBar
+    }
   }
 </script>
 
