@@ -27,6 +27,7 @@
     border-radius: .25rem;
     align-self: center;
     text-align: center;
+    margin-right:20px;
   }
   .nav-bar-toggler-icon {
     display: inline-block;
@@ -40,6 +41,7 @@
   @media screen and (min-width: 991px) {
     .nav-bar-toggler {
       font-size: 1.5rem;
+      margin-right: 40px;
     }
   }
 

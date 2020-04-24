@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Brief from "../views/find/child/Brief";
+
 
 /*mob*/
 const Home = () => import("@/views/home/Home")
@@ -9,21 +11,25 @@ const Software = () => import("@/views/software/Software")
 const Contact = () => import("@/views/contact/Contact")
 const BodyFence = () => import("@/views/products/BodyFence")
 const BodyFenceMatt = () => import("@/views/products/BodyFenceMatt")
+const jianbianImg = () => import("@/views/home/layout/jianbianImg")
+const zhengwen = () => import("@/views/home/layout/zhengwen")
+const homeTest = () => import("@/views/home/homeTest")
+const Find = () => import("@/views/find/Find")
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: "",
-    redirect: "/home"
+    redirect: "/Home"
   },
   {
     path: "/test",
-    component: BodyFenceMatt
+    component: Brief
   },
-  // {
-  //   path: "/home",
-  //   component: Home
-  // },
+  {
+    path: "/home",
+    component: Home
+  },
   {
     path: "/features",
     component: Features
@@ -44,6 +50,22 @@ const routes = [
     path: "/bodyFenceMatt",
     component: BodyFenceMatt
   },
+  {
+    path: "/jianbianImg",
+    component:jianbianImg,
+  },
+  {
+    path: "/zhengwen",
+    component:zhengwen,
+  },
+  {
+    path: "/homeTest",
+    component:homeTest
+  },
+  {
+    path: "/find",
+    component: Find
+  }
 ]
 
 const router = new VueRouter({

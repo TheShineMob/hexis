@@ -1,25 +1,25 @@
 <template>
   <div id="main-nav-bar">
-    <nav-bar :max-width="1340">
+    <nav-bar :max-width="1340" ref="navBar">
       <nav-bar-brand></nav-bar-brand>
       <nav-bar-toggler v-on:togglerClick="togglerClick"></nav-bar-toggler>
       <nav-bar-menu v-show="isHidden" class="menu-animation">
-        <nav-bar-menu-item ToWhere="HOME" ToPath="/home" :FlexBasis="80" />
-        <el-dropdown placement="top" :show-timeout="100">
-          <nav-bar-menu-item ToWhere="PRODUCTS" :IsDropdown="true" :FlexBasis="140" ToPath="/home" />
-          <div class="edit-div">
-            <el-dropdown-menu slot="dropdown">
-              <div class="edit-div">
-                <el-dropdown-item class="hvr-underline-from-left"><router-link to="/features" tag="a">FEATURES</router-link> </el-dropdown-item>
-                <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFence" tag="a">BODYFENCE</router-link> </el-dropdown-item>
-                <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFenceMatt" tag="a">BODYFENCE Matt</router-link> </el-dropdown-item>
-              </div>
-            </el-dropdown-menu>
-          </div>
-        </el-dropdown>
-        <nav-bar-menu-item ToWhere="SOFTWARE" :FlexBasis="110" ToPath="/software" />
-        <nav-bar-menu-item ToWhere="FIND" ToPath="/find" :FlexBasis="70" />
-        <nav-bar-menu-item ToWhere="CONTACT" ToPath="/contact"/>
+          <nav-bar-menu-item ToWhere="首页" ToPath="/home" :FlexBasis="80" />
+          <el-dropdown placement="top" :show-timeout="100">
+            <nav-bar-menu-item ToWhere="产品" :IsDropdown="true" :FlexBasis="140" ToPath="/features" />
+            <div class="edit-div">
+              <el-dropdown-menu slot="dropdown">
+                <div class="edit-div">
+                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/features" tag="a">特性</router-link> </el-dropdown-item>
+                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFence" tag="a">车身防护膜</router-link> </el-dropdown-item>
+                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFenceMatt" tag="a">哑光车身防护膜</router-link> </el-dropdown-item>
+                </div>
+              </el-dropdown-menu>
+            </div>
+          </el-dropdown>
+          <nav-bar-menu-item ToWhere="软件" :FlexBasis="70" ToPath="/software" />
+          <nav-bar-menu-item ToWhere="查询" ToPath="/find" :FlexBasis="70" />
+          <nav-bar-menu-item ToWhere="联系我们" ToPath="/contact" :FlexBasis="110"/>
         </nav-bar-menu>
     </nav-bar>
   </div>
@@ -49,6 +49,11 @@
     data() {
       return {
         isHidden: true
+      }
+    },
+    updated(){
+      if(this.$refs.navBar.offsetHeight >= 1200 ) {
+        this.isHidden = true
       }
     }
   }
@@ -103,6 +108,9 @@
     transition-duration: 0.3s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
+  }
+  .menu-animation {
+    transition: all .5s;
   }
 
 

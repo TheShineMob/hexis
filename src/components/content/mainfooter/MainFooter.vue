@@ -1,8 +1,11 @@
 <template>
   <div id="main-footer">
-    <icon-footer></icon-footer>
-    <site-info-footer></site-info-footer>
-    <copy-footer></copy-footer>
+    <div class="bottom">
+      <icon-footer></icon-footer>
+      <site-info-footer></site-info-footer>
+      <copy-footer></copy-footer>
+    </div>
+
   </div>
 </template>
 
@@ -24,5 +27,9 @@
 <style scoped>
   #main-footer {
     background-color: rgba(0,0,0,1);
+  }
+  .bottom{
+    /*position: absolute;*/
+    bottom: 0;
   }
 </style>

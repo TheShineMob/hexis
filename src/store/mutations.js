@@ -1,8 +1,6 @@
-import {
-  // TEST
-} from "./mutations_type"
+import {ALLPOSITION} from "./mutations_type";
 export default {
-  // [TEST](state) {
-  //   state.counter++
-  // }
+  [ALLPOSITION](state, allPosition) {
+    state.allPosition = allPosition
+  }
 }

@@ -19,7 +19,10 @@
                     <strong><label style='color: #de0022;'>产品代码:</label></strong>&nbsp;BODYFENCEM "
         iframe-p="https://www.youtube.com/embed/AAzoWq-t5ak?feature=oembed"
       ></protection-film>
+    </div>
+    <div style="background-color: #EFEFEF">
       <other-products
+        class="container"
         title1-p="身体防护"
         url1-p="bodyFenceMatt/C7XbAASWkAAq5b-.jpg"
         learn-url1-p="/bodyFence"

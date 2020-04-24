@@ -18,6 +18,7 @@
 <style scoped>
   #copy-footer {
     /*属性*/
+    width: 100%;
     background-color: rgba(48, 48, 48, 1);
     border: solid rgba(0,0,0,1);
     border-width: 2px 0 0 0;

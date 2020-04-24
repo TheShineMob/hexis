@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main-nav-bar />
-    <router-view/>
+    <router-view v-if="isRouterAlive"/>
     <main-footer />
   </div>
 </template>
@@ -17,10 +17,31 @@
     components: {
       MainFooter,
       MainNavBar
+    },
+    provide() {
+      return {
+        reload: this.reload
+      }
+    },
+    data() {
+      return {
+        isRouterAlive: true
+      }
+    },
+    methods: {
+      reload() {
+        this.isRouterAlive = false
+        this.$nextTick(() => {
+          this.isRouterAlive = true
+        })
+      }
     }
   }
 </script>
 
 <style lang="less">
   @import "./assets/css/base.css";
+  #app {
+    overflow-x: hidden;
+  }
 </style>

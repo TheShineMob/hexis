@@ -33,6 +33,7 @@
     background-color: #DE0022;
     color: #ffffff;
     text-align: right;
+    width: 100%;
   }
   #icon-footer a {
     color: white;

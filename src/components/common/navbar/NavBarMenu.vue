@@ -17,6 +17,7 @@
     height: auto;
     text-align: left;
     justify-content: left;
+    transition: all .5s;
   }
 
   @media screen and (min-width: 1200px) {

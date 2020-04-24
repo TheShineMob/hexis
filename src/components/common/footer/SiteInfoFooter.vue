@@ -21,6 +21,7 @@
 <style scoped>
   #site-info-footer {
     font-size: 85%;
+    width: 100%;
     background-color: rgb(0,0,0);
     color: rgb(128,128,128);
   }

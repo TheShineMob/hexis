@@ -16,6 +16,10 @@ module.exports = {
         'network': path.resolve(__dirname, '@/network'),
         'views': path.resolve(__dirname, '@/views')
       }
+    },
+    externals: {
+      'AMap': 'window.AMap',
+      'AMapUI': 'AMapUI'
     }
   },
 }
