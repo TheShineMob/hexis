@@ -7,8 +7,7 @@
           class="inline-input"
           v-model="yourPosition"
           :fetch-suggestions="querySearch"
-          placeholder="请输入内容"
-          :trigger-on-focus="false"
+          placeholder="请输入地址"
           @select="handleSelect"
         ></el-autocomplete>
       </div>
@@ -49,11 +48,13 @@
       return {
         yourPosition:"",
         restaurants: [],
+        resultLike: [],
         allPosition: JSON.parse(localStorage.getItem("allPosition")),
         activeLngLat: this.activeLngLatP,
       }
     },
     created() {
+
     },
     mounted() {
       this.init();
@@ -70,6 +71,8 @@
           doubleClickZoom: false,
           scrollWheel: false,
         });
+        /*添加marker*/
+        this.createMarkers();
         mapObj.plugin(["AMap.ToolBar"], () => {
           /*配置简易缩放按钮*/
           let toolBar = new AMap.ToolBar({
@@ -78,8 +81,6 @@
           /*添加组件*/
           mapObj.addControl(toolBar)
         });
-        /*添加marker*/
-        this.createMarkers();
       },
       createMarkers() {
         /*生成标记点*/
@@ -112,8 +113,9 @@
         this.$emit("selectItem",selectItem);
       },
       querySearch(queryString, cb) {
-        var restaurants = this.restaurants;
-        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+        // let restaurants = this.restaurants;
+        // let results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+        let results = this.resultLike;
         // 调用 callback 返回建议列表的数据
         cb(results);
       },
@@ -139,7 +141,6 @@
       },
       toPosition() {
         this.$emit("toPosition",this.yourPosition);
-        console.log("myMap1")
       }
     },
     watch: {
@@ -157,6 +158,23 @@
           mapObj.setZoom(15,false,500)
         }
       },
+      yourPosition: {
+        handler: function() {
+          this.resultLike = [];
+          let len = this.restaurants.length;
+          let arr = [];
+          for (let i=0; i<len; i++) {
+            if(this.restaurants[i].address.indexOf(this.yourPosition) >= 0  || this.restaurants[i].value.indexOf(this.yourPosition) >= 0){
+              arr.push(this.restaurants[i].value);
+            }
+          }
+          for (let i=0; i< arr.length; i++) {
+            let obj = {value: ""};
+            obj.value = arr[i];
+            this.resultLike.push(obj);
+          }
+        }
+      }
     }
   }
 </script>
