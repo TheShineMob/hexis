@@ -140,7 +140,7 @@
                                                 <i class="btn_icon">
                                                     <img src="../../assets/img/wjy/icon/phone.svg" alt="phone">
                                                 </i>
-                                                (+33) 4 34 33 97 77
+                                              400-096-1989
                                             </a>
                                         </div>
                                     </div>
@@ -180,12 +180,12 @@
                                 <h2>信息登记表</h2>
                                 <div class="form_body">
                                     <ul class="form_feilds" style="list-style-type:none">
-                                        <s_input :inputObj="inputObj_1"></s_input>
-                                        <s_input :inputObj="inputObj_2"></s_input>
-                                        <s_input :inputObj="inputObj_3"></s_input>
-                                        <s_input :inputObj="inputObj_4"></s_input>
-                                        <s_input :inputObj="inputObj_5"></s_input>
-                                        <s_input :inputObj="inputObj_6"></s_input>
+                                        <s_input :inputObj="inputObj_1" v-model="name"></s_input>
+                                        <s_input :inputObj="inputObj_2" v-model="zengzhizhuiNumber"></s_input>
+                                        <s_input :inputObj="inputObj_3" v-model="city"></s_input>
+                                        <s_input :inputObj="inputObj_4" v-model="yAddress"></s_input>
+                                        <s_input :inputObj="inputObj_5" v-model="email"></s_input>
+                                        <s_input :inputObj="inputObj_6" v-model="phone"></s_input>
                                         <li id="field_7">
                                             <h2 style="font-size: 1.25em;border-bottom: 1px solid #CCC;">账单地址</h2>
                                         </li>
@@ -210,7 +210,6 @@
                                         class="form_button button"
                                         value="提交"
                                         v-on:click="submit"
-                                        onclick
                                         @keyup.enter="submit"
                                         />
                                 </div>
@@ -245,18 +244,25 @@ export default {
 
     data() {
         return {
+            name:'',
+            zengzhizhuiNumber:'',
+            city:'',
+            yAddress:'',
+            email:'',
+            phone:'',
             inputObj_1: {
                 id: "1",
                 isRequired: "true",
                 name_cn: "公司名",
-                name_en: "Company"
+                name_en: "Company",
             },
 
             inputObj_2: {
                 id: "2",
                 isRequired: "true",
                 name_cn: "增值税号",
-                name_en: "VAT Number"
+                name_en: "VAT Number",
+
             },
 
             inputObj_3: {
@@ -289,17 +295,46 @@ export default {
 
             company: {
                 logo: require("@/assets/img/wjy/logo/WBODYFENCE_2K18_logo.svg"),
-                address: "XXXXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXXXXXX",
-                phone: "12331441231",
-                email: "122131331kl@qq.com"
-            }
+                address: "浙江省宁波市江北区洪发路18号",
+                phone: "400-096-19891",
+                email: "so-fine@hexis.cn"
+            },
         };
-
-
     },
     methods: {
-      submit: function() {
-        alert("提交成功");
+      submit() {
+        location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=信息登记表&body="+"公司名："+this.name+"%0a%0d 增值税号："+this.zengzhizhuiNumber+"%0a%0d 所在城市："+this.city
+        +"%0a%0d 详细地址："+this.yAddress+"%0a%0d 邮箱地址：" + this.email + "%0a%0d 手机号码："+ this.phone;
+      },
+      sInputValue(index,data) {
+        console.log("data:",data +"index: ",index)
+
+        switch (index) {
+          case 1 : {
+            this.name = data;
+            break;
+          }
+          case 2 : {
+            this.zengzhizhuiNumber = data;
+            break;
+          }
+          case 3 : {
+            this.city = data;
+            break;
+          }
+          case 4 : {
+            this.yAddress = data;
+            break;
+          }
+          case 5: {
+            this.email = data;
+            break;
+          }
+          case 6 : {
+            this.phone = data;
+            break;
+          }
+        }
       }
     },
     components:{

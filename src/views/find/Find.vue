@@ -36,35 +36,35 @@
           :brief-title-p="showContactFormItem.title"
           v-on:hiddenForm="hiddenContactForm"
         ></brief>
-        <div class="contact-box">
+        <form class="contact-box" action="javascript:void(0);" >
           <el-row class="contact_inner" style="text-align: center">
             <el-col tag="h3" >填好这张表，我们会尽快与您联系</el-col>
           </el-row>
           <p class="contact_inner">姓名<span style="color: red">*</span></p>
           <el-row class="contact_inner" type="flex">
-            <el-col><input type="text" style="width: 97%;margin-right: 10px" :value="form.firstName" placeholder="请输入您的姓..." /></el-col>
-            <el-col><input type="text" style="width: 97%;margin-left:  10px" :value="form.lastName" placeholder="请输入您的名..."/> </el-col>
+            <el-col><input type="text" style="width: 97%;margin-right: 10px" v-model="firstName" placeholder="请输入您的姓..." required="required" /></el-col>
+            <el-col><input type="text" style="width: 97%;margin-left:  10px" v-model="lastName" placeholder="请输入您的名..."  required="required" /> </el-col>
           </el-row>
           <p class="contact_inner">邮箱<span style="color: red">*</span></p>
           <el-row class="contact_inner">
             <el-col>
-              <input type="text" style="width: 100%" :value="form.email" placeholder="请输入您的邮箱..." />
+              <input type="email" required="required" style="width: 100%" v-model="email" placeholder="请输入您的邮箱..." />
             </el-col>
           </el-row>
           <el-row class="contact_inner">
             <el-col><p>国家<span style="color: red">*</span></p></el-col>
-            <el-col><input type="text" style="width: 100%" :value="form.company" placeholder="请输入您的国家..."/></el-col>
+            <el-col><input type="text" required="required" style="width: 100%" v-model="company" placeholder="请输入您的国家..."/></el-col>
             <el-col><p>电话<span style="color: red">*</span></p></el-col>
-            <el-col><input type="text" style="width: 100%" :value="form.phone" placeholder="请输入您的电话..."/></el-col>
+            <el-col><input ref="tel" type="tel" required="required" style="width: 100%" v-model="phone" placeholder="请输入您的电话..."/></el-col>
           </el-row>
-          <p class="contact_inner">详细情况<span style="color: red">*</span></p>
+          <p class="contact_inner">详细情况</p>
           <el-row class="contact_inner">
             <el-col>
-              <textarea name="massage" id="" cols="30" rows="10" style="width: 100%" placeholder="请详细说明您的情况..."></textarea>
+              <textarea name="massage"  id="" cols="30" rows="10" style="width: 100%;resize:none;" v-model="message" placeholder="请详细说明您的情况..." ></textarea>
             </el-col>
           </el-row>
-          <button class="contact_inner contact_send" @click="window.alert('发送成功！')">发送</button>
-        </div>
+          <input type="submit" class="contact_inner contact_send" @click="send"></input>
+        </form>
       </el-col>
     </el-row>
   </div>
@@ -100,14 +100,12 @@
           phone: "",
           type: ""
         },
-        form: {
-          firstName: '',
-          lastName: '',
-          email: '',
-          company: '',
-          phone: '',
-          message: ''
-        },
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: ''
       }
     },
     created() {
@@ -116,6 +114,17 @@
       this.getAllPosition();
     },
     methods: {
+      send(){
+        if(this.$refs.tel.validity.valid){
+          location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=BODYFENCE咨询&body="+
+              `姓名：`+this.firstName+this.lastName+"%0a%0d"+`
+              国家：`+this.company+"%0a%0d"+`
+              电话：`+this.phone+"%0a%0d"+`
+              详细情况: `+this.message;
+        }else {
+          return false;
+        }
+      },
       getAllPosition(){
         getFind(0,1,10000).then(response => {
           this.allPosition = response.data.list;

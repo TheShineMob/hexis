@@ -1,13 +1,15 @@
 <template>
-   
     <span :id="inputObj.id+'_span'">
         <label for="name">
             {{inputObj.name_cn}}
         </label>
-        <input type='text' :name='inputObj.id' :id='inputObj.id' value='' :aria-label='inputObj.name_en'   :aria-required="inputObj.isrequired" aria-invalid="false" :placeholder='inputObj.name_en'/>
+        <input
+          :value="value"
+          v-on="inputListeners"
+          type='text' :name='inputObj.id' :id='inputObj.id' value='' :aria-label='inputObj.name_en'   :aria-required="inputObj.isrequired" aria-invalid="false" :placeholder='inputObj.name_en'/>
     </span>
 
-   
+
 </template>
 
 <script>
@@ -20,14 +22,26 @@ export default {
     },
 
     props:{
-        
         inputObj:{
             type:Object,
             default:function(){
                 return {message:'none'}
             }
-        }
-    }
+        },
+      value: "",
+    },
+  computed: {
+      inputListeners: function () {
+        let vm = this;
+        return Object.assign({},
+        this.$listeners,
+            {
+              input: function (event) {
+                vm.$emit('input', event.target.value);
+              }
+            })
+      }
+  }
 }
 </script>
 
@@ -39,26 +53,26 @@ span{
     vertical-align: top;
     padding-right: 16px;
     margin-right: -4px;
-    
+
 }
 label{
-    
+
     display: block;
     font-size: 20px;
     letter-spacing: .5pt;
     white-space: nowrap;
-    margin: 9px 0 5px 0px; 
-    
+    margin: 9px 0 5px 0px;
+
 }
 
 input{
-    
+
     width:100%;
     font-family: inherit;
     padding: 5px 4px;
     letter-spacing: normal;
     margin-bottom: 1px;
-    display: block;   
+    display: block;
     height: 34px;
     font-size: 14px;
     line-height: 1.5;

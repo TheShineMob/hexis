@@ -5,7 +5,7 @@
       <span class="rf_required" >*</span>
     </label>
     <div class="input_container">
-      <input :id="'input_1'+inputObj.id" type="text" :required="inputObj.isRequired"  />
+      <input  v-bind:value="value" v-on="inputListeners" :id="'input_1'+inputObj.id" type="text" :required="inputObj.isRequired"  />
     </div>
   </li>
 </template>
@@ -14,7 +14,19 @@
 export default {
   name: "s_input",
   data() {
-    return {};
+    return {
+
+    };
+  },
+  computed: {
+    inputListeners: function () {
+      let vm = this;
+      return Object.assign({}, this.$listeners, {
+        input:function (event) {
+          vm.$emit("input", event.target.value);
+        }
+      })
+    }
   },
 
   props: {
@@ -23,8 +35,9 @@ export default {
       default: function() {
         return { message: "none" };
       }
-    }
-  }
+    },
+    value: ""
+  },
 };
 </script>
 
@@ -70,7 +83,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-  outline: none; 
+  outline: none;
 }
 
 input:focus {

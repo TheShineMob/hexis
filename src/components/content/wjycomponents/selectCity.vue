@@ -4,23 +4,22 @@
         <select name='input_33.6' id='input_2_33_6'  aria-required="true">
             <option value='' selected='selected'>City</option>
             <option v-for="item in list" :key="item" :value='item'>{{item}}</option>
-            
         </select>
-        
+
     </span>
 </template>
- 
+
 <script>
 
 export default {
     name:'selectCountry',
     data(){
         return{
-            list:[ 
+            list:[
                 '安徽省' ,
                 '北京',
                 '重庆',
-                '福建省', 
+                '福建省',
                 '甘肃省',
                 '广东省',
                 '广西壮族自治区',
@@ -39,7 +38,7 @@ export default {
                 '宁夏回族自治区',
                 '青海省',
                 '山东省',
-                '山西省', 
+                '山西省',
                 '陕西省',
                 '上海',
                 '四川省',
@@ -49,7 +48,7 @@ export default {
                 '云南省',
                 '浙江省',
              ]
-        }        
+        }
     }
 }
 </script>
@@ -69,7 +68,7 @@ label{
     font-size: 20px;
     letter-spacing: .5pt;
     white-space: nowrap;
-    margin: 9px 0 5px 0px; 
+    margin: 9px 0 5px 0px;
 }
 select{
    display: block;

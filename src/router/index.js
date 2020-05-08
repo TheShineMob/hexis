@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Brief from "../views/find/child/Brief";
+import Test from "../views/test/Test";
 
 
 /*mob*/
@@ -20,35 +21,56 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "",
-    redirect: "/Home"
+    redirect: "/Home",
+    meta:{
+      title: "www.hexis.cn"
+    }
   },
   {
     path: "/test",
-    component: Brief
+    component: Test
   },
   {
     path: "/home",
-    component: Home
+    component: Home,
+    meta: {
+      title: "HEXIS"
+    }
   },
   {
     path: "/features",
-    component: Features
+    component: Features,
+    meta:{
+      title: "HEXIS/产品"
+    }
   },
   {
     path: "/contact",
-    component: Contact
+    component: Contact,
+    meta: {
+      title: "HEXIS/联系我们"
+    }
   },
   {
     path: "/software",
-    component: Software
+    component: Software,
+    meta: {
+      title: "HEXIS/获取软件"
+    }
   },
   {
     path: "/bodyFence",
-    component: BodyFence
+    component: BodyFence,
+    meta:{
+      title: "HEXIS/BODYFENCE"
+    }
   },
   {
     path: "/bodyFenceMatt",
-    component: BodyFenceMatt
+    component: BodyFenceMatt,
+    meta:{
+      title: "HEXIS/MATT"
+    }
   },
   {
     path: "/jianbianImg",
@@ -64,14 +86,25 @@ const routes = [
   },
   {
     path: "/find",
-    component: Find
+    component: Find,
+    meta: {
+      title:"HEXIS/查询"
+    }
   }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  /*路由发生变化修改页面title*/
+  if(to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
 })
 
 export default router

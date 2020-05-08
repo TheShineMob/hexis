@@ -35,8 +35,8 @@
                     <span class="asterisk">*</span>
                   </label>
                   <div id="field_2_1">
-                    <inputField :inputObj="inputObj_1"></inputField>
-                    <inputField :inputObj="inputObj_2"></inputField>
+                    <inputField :inputObj="inputObj_1" v-model="lastName"></inputField>
+                    <inputField :inputObj="inputObj_2" v-model="firstName"></inputField>
                   </div>
                 </li>
                 <!-- 姓名 -->
@@ -48,11 +48,11 @@
                     <span class="asterisk">*</span>
                   </label>
                   <div id="field_2_2">
-                    <inputField :inputObj="inputObj_3"></inputField>
+                    <inputField :inputObj="inputObj_3" v-model="companyName"></inputField>
                     <br />
                     <selectCity></selectCity>
-                    <inputField :inputObj="inputObj_4"></inputField>
-                    <inputField :inputObj="inputObj_6"></inputField>
+                    <inputField :inputObj="inputObj_4" v-model="cAddress"></inputField>
+                    <inputField :inputObj="inputObj_6" v-model="zip"></inputField>
                   </div>
                 </li>
                 <!-- 公司 -->
@@ -64,7 +64,7 @@
                     <span class="asterisk">*</span>
                   </label>
                   <div>
-                    <inputField :inputObj="inputObj_8"></inputField>
+                    <inputField :inputObj="inputObj_8" v-model="email"></inputField>
                   </div>
                 </li>
                 <!-- 邮箱地址 -->
@@ -76,13 +76,13 @@
                     <span class="asterisk">*</span>
                   </label>
                   <div>
-                    <inputField :inputObj="inputObj_9"></inputField>
+                    <inputField :inputObj="inputObj_9" v-model="phone"></inputField>
                   </div>
                 </li>
                 <!-- 电话号码 -->
 
                 <!--你的意见 -->
-                <li id="field_5_phone" class="form_fields">
+                <li id="field_6_textArea" class="form_fields">
                   <label class="form_label">
                     你的意见
                     <span class="asterisk">*</span>
@@ -95,6 +95,8 @@
                       aria-invalid="false"
                       rows="10"
                       cols="50"
+                      style="resize:none;"
+                      v-model="nideyijian"
                     ></textarea>
                   </div>
                 </li>
@@ -111,7 +113,6 @@
                   class="form_button button"
                   value="提交"
                   v-on:click="submit"
-                  onclick
                   @keyup.enter="submit"
                 />
               </div>
@@ -158,21 +159,18 @@ export default {
         name_cn: "姓氏",
         name_en: "LastName"
       },
-
       inputObj_2: {
         id: "input_FirstName",
         isRequired: "true",
         name_cn: "名字",
         name_en: "FirstName"
       },
-
       inputObj_3: {
         id: "input_CompanyName",
         isRequired: "true",
         name_cn: "公司名",
         name_en: "Company Name"
       },
-
       inputObj_4: {
         id: "input_Address",
         isRequired: "true",
@@ -203,19 +201,34 @@ export default {
         name_cn: "",
         name_en: "Phone Number"
       },
-
       company: {
         logo: require("@/assets/img/wjy/logo/WBODYFENCE_2K18_logo.svg"),
-        address: "XXXXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXXXXXX",
-        phone: "12331441231",
-        email: "122131331kl@qq.com"
-      }
+        address: "浙江省宁波市江北区洪发路18号",
+        phone: "400-096-1989",
+        email: "so-fine@hexis.cn"
+      },
+      lastName: "",
+      firstName: "",
+      companyName: "",
+      city:"",
+      cAddress: "",
+      zip: "",
+      email:"",
+      phone: "",
+      nideyijian: ""
     };
   },
 
   methods: {
     submit: function() {
-      alert("提交成功");
+      location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=联系我们&body="+
+        "姓名："+this.lastName+this.firstName+
+        "%0a%0d 公司名：" + this.companyName +
+        "%0a%0d 地  址：" + this.cAddress +
+        "%0a%0d 邮政编码：" + this.zip +
+        "%0a%0d 邮箱地址：" + this.email +
+        "%0a%0d 电话号码：" + this.phone +
+        "%0a%0d 你的意见：" + this.nideyijian;
     }
   },
 
