@@ -2,7 +2,7 @@
   <div id="findBase" class="container">
     <el-row class="column-inner" style="height: 170px;display: flex; align-items: center">
       <el-col>
-        <h2 style="font-size: 24px">查找BODYFENCE安装门店</h2>
+        <h2 style="font-size: 24px">BODYFENCE 认证授权店查询</h2>
         <p>应用部门HEXIS已建立了认可的安装程序网络，以为其客户端提供了高性能和快速响应的服务。</p>
       </el-col>
     </el-row>
@@ -63,7 +63,7 @@
               <textarea name="massage"  id="" cols="30" rows="10" style="width: 100%;resize:none;" v-model="message" placeholder="请详细说明您的情况..." ></textarea>
             </el-col>
           </el-row>
-          <input type="submit" class="contact_inner contact_send" @click="send"></input>
+          <a :href="emailHref"><input type="submit" class="contact_inner contact_send" @click="send"></input></a>
         </form>
       </el-col>
     </el-row>
@@ -105,7 +105,12 @@
         email: '',
         company: '',
         phone: '',
-        message: ''
+        message: '',
+        emailHref:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=BODYFENCE咨询&body="+
+            `姓名：`+this.firstName+this.lastName+"%0a%0d"+`
+              国家：`+this.company+"%0a%0d"+`
+              电话：`+this.phone+"%0a%0d"+`
+              详细情况: `+this.message
       }
     },
     created() {
@@ -116,11 +121,7 @@
     methods: {
       send(){
         if(this.$refs.tel.validity.valid){
-          location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=BODYFENCE咨询&body="+
-              `姓名：`+this.firstName+this.lastName+"%0a%0d"+`
-              国家：`+this.company+"%0a%0d"+`
-              电话：`+this.phone+"%0a%0d"+`
-              详细情况: `+this.message;
+          location = this.emailHref
         }else {
           return false;
         }

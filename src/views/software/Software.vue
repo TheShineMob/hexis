@@ -19,7 +19,7 @@
                             <div class="wrapper" >
                                 <!-- 标题1 -->
                                 <div class="text_column">
-                                    <h2>软件介绍</h2>
+                                    <h2>专车专用</h2>
                                 </div> <!-- 标题1 -->
                                 <!-- 标题2 -->
                                 <div class="text_column">
@@ -28,7 +28,11 @@
                                 <!-- 具体介绍 -->
                                 <div class="text_column">
                                     <p >
-                                        HEXIS DESIGN提供最完整的软件解决方案之一，用于创建油漆和灯光保护膜套件以及太阳能膜套件。您可以切割或创建自己的预切并使用大量可用的预切。HEXIS DESIGN提供了一个广泛的车辆数据库，该数据库是为满足涂料保护和太阳能薄膜市场的需求而开发的。HEXIS DESIGN每月可订阅。
+                                      海量数据！
+                                      <br />
+                                      涵盖全球车型！
+                                      <br />
+                                      为中国特制适合中国车型的海量数据!
                                     </p>
                                 </div>
                             </div>
@@ -85,7 +89,7 @@
 
                             <!-- 获得软件标题 -->
                             <div id="gs_title">
-                                <h2 >三个步骤得到你的设计软件</h2>
+                                <h2 >三个步骤 拥有属于您的HEXIS DESIGH SOFTWARE</h2>
                                 <br>
                                 <h3 style="color:grey">3 STEPS TO GET THE SOFTWARE</h3>
                             </div> <!-- 获得软件标题 -->
@@ -105,7 +109,7 @@
                                         </div>
                                         <div class="gs_step_text">
                                             <div class="text_column">
-                                                 <p>要订阅HEXIS DESIGN，您需要填写此处的注册表格。您必须将该授权表发送到contact@hexis-design.com ，这样您很快就会收到付款授权表。激活密钥的押金将从您的帐户中扣除。</p>
+                                                 <p>填写注册表格，并将表格发送至so-fine@hexis.cn。<br><br><br><br></p>
 
                                             </div>
                                         </div>
@@ -131,7 +135,8 @@
                                         </div>
                                         <div class="gs_step_text">
                                             <div class="text_column">
-                                                 <p>您将在付款后获得激活密钥。该密钥将允许您激活软件。您的订阅将从您第一次联系我们的日期开始计算，每月扣除相应费用</p>
+                                                 <p>HEXIS中国专员与您具体对接，在您按照流程付款之后，将获得您专有的激活密钥。从而激活您的产品。</p>
+                                                    <br>
                                                     <br>
                                             </div>
                                         </div>
@@ -157,7 +162,7 @@
                                         </div>
                                         <div class="gs_step_text">
                                             <div class="text_column">
-                                                 <p>现在，您可以在计算机上下载该软件，并可以使用其所有功能！如果您遇到有关本软件的问题，您可以在北京时间周一至周五下午2点至11点联系我们的工作人员。</p>
+                                                 <p>HEXIS中国专员与您具体对接，在您按照流程付款之后，将获得您专有的激活密钥。从而激活您的产品。</p>
                                             </div>
                                         </div>
                                         <div class="gs_step_img"  >
@@ -260,7 +265,7 @@ export default {
             inputObj_2: {
                 id: "2",
                 isRequired: "true",
-                name_cn: "增值税号",
+                name_cn: "增值税",
                 name_en: "VAT Number",
 
             },
@@ -299,12 +304,13 @@ export default {
                 phone: "400-096-19891",
                 email: "so-fine@hexis.cn"
             },
+          emailHref: "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=信息登记表&body="+"公司名："+this.name+"%0a%0d 增值税号："+this.zengzhizhuiNumber+"%0a%0d 所在城市："+this.city
+              +"%0a%0d 详细地址："+this.yAddress+"%0a%0d 邮箱地址：" + this.email + "%0a%0d 手机号码："+ this.phone
         };
     },
     methods: {
       submit() {
-        location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=信息登记表&body="+"公司名："+this.name+"%0a%0d 增值税号："+this.zengzhizhuiNumber+"%0a%0d 所在城市："+this.city
-        +"%0a%0d 详细地址："+this.yAddress+"%0a%0d 邮箱地址：" + this.email + "%0a%0d 手机号码："+ this.phone;
+        location = this.emailHref;
       },
       sInputValue(index,data) {
         console.log("data:",data +"index: ",index)

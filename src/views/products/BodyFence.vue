@@ -19,6 +19,8 @@
     <div class="body-fence-space"></div>
     <div class="container">
       <protection-film
+        matt-logo-s-p=""
+        indicative-value-p="155"
       ></protection-film>
     </div>
     <div style="background-color:#EFEFEF;">

@@ -6,16 +6,23 @@ window.onresize = function() {
 };
 // 获取所需效果元素
 var My_vanwee = document.getElementsByClassName('vanwee');
+var My_vanwee2 = document.getElementsByClassName('vanwee2');
+//console.log(My_vanwee2)
 // 鼠标滚轮滚动执行方法
 window.onscroll = function() {
     // 获取鼠标滚轮滚动距离
     var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
     // 循环类vanwee
     for (var k = 0; k < My_vanwee.length; k++) {
+
         if (My_vanwee[k].classList.contains("f-up") == false && _scrollTop >= getOffsetTop(My_vanwee[k]) - window_height &&
             _scrollTop <= getOffsetTop(My_vanwee[k])) {
             My_vanwee[k].classList.add("f-up");
         }
+      if (My_vanwee2[k].classList.contains("f-down") == false && _scrollTop >= getOffsetTop(My_vanwee2[k]) - window_height &&
+        _scrollTop <= getOffsetTop(My_vanwee2[k])) {
+        My_vanwee2[k].classList.add("f-down");
+      }
     }
 };
 // 判断元素父集是否有已定位元素
@@ -29,17 +36,7 @@ function getOffsetTop(ele) {
     return rtn;
 }
 // 滚动条等于0时执行第一屏效果
-function my_animation() {
-    var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    // 效果方法
-    for (var k = 0; k < My_vanwee.length; k++) {
-        if (My_vanwee[k].classList.contains("f-up") == false && _scrollTop >= getOffsetTop(My_vanwee[k]) - window_height &&
-            _scrollTop <= getOffsetTop(My_vanwee[k])) {
-            My_vanwee[k].classList.add("f-up");
-        }
-    }
-}
-my_animation();
+
 
 
 

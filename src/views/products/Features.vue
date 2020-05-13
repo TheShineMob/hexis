@@ -7,19 +7,19 @@
       <el-row>
         <el-col :xs="24" :xl="12" :lg="12" :md="12" :sm="12" >
           <wrapper video-title-black-p="自"
-                   video-title-red-p="愈合"
+                   video-title-red-p="修复"
                    video-url-p="https://player.vimeo.com/video/118697584?app_id=122963"
-                   text-box1-p="如果您的油漆被刮擦，<b>BODYFENCE</b>保护模将在阳光或热水的帮助下再生。"
-                   text-box2-p="使用自动机械洗车刷，在路边的灌木丛上摩擦，在日常使用中或由于故意破坏行为，在车身上会出现划痕。"
-                   text-box3-p="由于太阳的热或仅使用热水冲洗，所有这些划痕都将会从BODYFENCE保护膜的表面消除，您原来的油漆被保存了......永远年轻！"
           ></wrapper>
+<!--          text-box1-p="如果您的油漆被刮擦，<b>BODYFENCE</b>保护模将在阳光或热水的帮助下再生。"-->
+<!--          text-box2-p="使用自动机械洗车刷，在路边的灌木丛上摩擦，在日常使用中或由于故意破坏行为，在车身上会出现划痕。"-->
+<!--          text-box3-p="由于太阳的热或仅使用热水冲洗，所有这些划痕都将会从BODYFENCE保护膜的表面消除，您原来的油漆被保存了......永远年轻！"-->
         </el-col>
         <el-col :xs="24" :xl="12" :lg="12" :md="12" :sm="12">
-          <wrapper video-title-black-p="凿"
-                   video-title-red-p="抗性"
+          <wrapper video-title-black-p="极强"
+                   video-title-red-p="抗刮擦"
                    video-url-p="https://player.vimeo.com/video/235878288?app_id=122963"
-                   text-box1-p="从石头，砂石到道路残渣，油漆损坏的原因有上百万种。借助<b>BODYFENCE</b>抵御这些日常道路危害得影响。"
           ></wrapper>
+<!--          text-box1-p="从石头，砂石到道路残渣，油漆损坏的原因有上百万种。借助<b>BODYFENCE</b>抵御这些日常道路危害得影响。"-->
         </el-col>
       </el-row>
       <el-row>
@@ -27,17 +27,17 @@
           <wrapper video-title-black-p="自我"
                    video-title-red-p="清洁"
                    video-url-p="https://player.vimeo.com/video/118687868?app_id=122963"
-                   text-box1-p="我们的<b>BODYFENCE</b>保护模含有抗粘附成分。因此，灰尘和污垢将更少地附着在车身上。"
-                   text-box2-p="清洁频率将降低，并且清洁起来更容易。"
           ></wrapper>
+<!--          text-box1-p="我们的<b>BODYFENCE</b>保护模含有抗粘附成分。因此，灰尘和污垢将更少地附着在车身上。"-->
+<!--          text-box2-p="清洁频率将降低，并且清洁起来更容易。"-->
         </el-col>
         <el-col :xs="24" :xl="12" :lg="12" :md="12" :sm="12">
           <wrapper video-title-black-p="超"
-                   video-title-red-p="透明"
+                   video-title-red-p="亮度"
                    video-url-p="https://player.vimeo.com/video/235878323?app_id=122963"
-                   text-box1-p="我们的<b>BODYFENCE</b>保护模是被开发出保护车辆漆面而不改变其外观地高透明性保护模。"
-                   text-box2-p="该膜有亮光和哑光两种膜面可供选择，哑光版的<strong><span style='color: #de0022;'>HEXIS</span> BODYFENCE</strong> 可以使任何油漆或光泽膜哑光。"
           ></wrapper>
+<!--          text-box1-p="我们的<b>BODYFENCE</b>保护模是被开发出保护车辆漆面而不改变其外观地高透明性保护模。"-->
+<!--          text-box2-p="该膜有亮光和哑光两种膜面可供选择，哑光版的<strong><span style='color: #de0022;'>HEXIS</span> BODYFENCE</strong> 可以使任何油漆或光泽膜哑光。"-->
         </el-col>
       </el-row>
     </div>

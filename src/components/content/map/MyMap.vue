@@ -5,6 +5,7 @@
       <div id="mapInput" class="edit-div">
         <el-autocomplete
           class="inline-input"
+          style="min-width: 200px"
           v-model="yourPosition"
           :fetch-suggestions="querySearch"
           placeholder="请输入地址"
@@ -102,8 +103,16 @@
             clickable: true,
           });
           marker.on("click",this.clickOnMarker)
+          marker.on("touchstart",this.touchOnMarker)
           mapObj.add(marker)
         }
+      },
+      touchOnMarker(e){
+        mapObj.panTo(e.lnglat,100);
+        let selectItem = this.allPosition.filter(item => {
+          return item.name === e.target.dom.title;
+        })[0];
+        this.$emit("selectItem",selectItem);
       },
       clickOnMarker(e) {
         mapObj.panTo(e.lnglat,100);
@@ -224,6 +233,12 @@
     font-size: 22px;
     font-weight: 900;
     margin-bottom: 15px;
+    text-wrap: none;
+  }
+  @media screen and (max-width: 440px) {
+    .mapTitle{
+      display: none;
+    }
   }
   #geoLocImg {
     cursor: pointer;

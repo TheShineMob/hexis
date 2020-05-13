@@ -18,6 +18,8 @@
                     <strong><label style='color: #de0022;'>涂饰:</label></strong>&nbsp;哑光<br>
                     <strong><label style='color: #de0022;'>产品代码:</label></strong>&nbsp;BODYFENCEM "
         iframe-p="https://www.youtube.com/embed/AAzoWq-t5ak?feature=oembed"
+        matt-logo-s-p="false"
+        indicative-value-p="160"
       ></protection-film>
     </div>
     <div style="background-color: #EFEFEF">

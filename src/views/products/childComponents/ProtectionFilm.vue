@@ -32,51 +32,75 @@
         <el-col :xl="12" :lg="12" :md="12" :sm="12" :xs="24" class="column-inner el-row-margin-bottom">
           <div class="edit-div">
             <el-tabs v-model="activeName" type="border-card" >
-              <el-tab-pane name="first">
-                <span slot="label"><i class="fas fa-ruler "></i> 卷尺寸</span>
-                <div class="wrapper">
-                  <p v-html="rollSize" style="text-align: justify;"></p>
-                  <p v-html="sizeMore" style="text-align: justify;"></p>
-                </div>
-              </el-tab-pane>
+<!--              <el-tab-pane name="first">-->
+<!--                <span slot="label"><i class="fas fa-ruler "></i> 卷尺寸</span>-->
+<!--                <div class="wrapper">-->
+<!--                  <p v-html="rollSize" style="text-align: justify;"></p>-->
+<!--                  <p v-html="sizeMore" style="text-align: justify;"></p>-->
+<!--                </div>-->
+<!--              </el-tab-pane>-->
               <el-tab-pane name="second">
                 <span slot="label"><i class="fas fa-info "></i> 特征</span>
-                <div class="wrapper">
-                  <p v-html="theFeatures" style="text-align: justify;"></p>
+                <div class="wrapper mattLogF">
+                  <i class="mattLogo" v-show="mattLogoS">MATT</i>
+<!--                  <p v-html="theFeatures" style="text-align: justify;"></p>-->
+                  <h4 class="film_features" style="margin-bottom: 0">FILM FEATURES:</h4>
+                  <h5 style="position: relative;left: 53%;text-decoration: underline;font-weight: 700;font-size: 16px;">Indicative value</h5>
+                  <ul class="features_list" style="margin:0;">
+                    <li class="item1">Thickness(um):</li>
+                    <li class="item2" style="list-style: none"><br /></li>
+                    <li class="item3">Tensile strength (N/25 mm):</li>
+                    <li class="item4">Elongation at break(%):</li>
+                    <li class="item5">Shrinkage 168 hours at 70 ℃(158℉)(mm):</li>
+                  </ul>
+                  <ul class="indicative_value" style="margin:0;">
+                    <li>{{indicativeValue}}</li>
+                    <li style="text-decoration: underline;font-weight: 700;font-size: 16px">Average values</li>
+                    <li>> 100</li>
+                    <li>> 350</li>
+                    <li>< 0.2</li>
+                  </ul>
+                  <ul class="standard" style="margin:0;padding: 0">
+                    <li style="list-style: none;"><br /></li>
+                    <li style="list-style:none;text-decoration: underline;font-weight: 700">Standard</li>
+                    <li>HEXNFX41021</li>
+                    <li>HEXNFX41021</li>
+                    <li>HEXRET001</li>
+                  </ul>
                 </div>
               </el-tab-pane>
-              <el-tab-pane name="third">
-                <span slot="label"><i class="far fa-hand-pointer "></i> 应用领域</span>
-                <div class="wrapper">
-                  <p v-html="applications" style="text-align: justify;"></p>
-                </div>
-              </el-tab-pane>
-              <el-tab-pane name="fourth">
-                <span slot="label"><i class="far fa-sun "></i> 保证</span>
-                <div class="wrapper">
-                  <p style="text-align: justify;" v-html="warranty1"></p>
-                  <p style="text-align: left;" v-html="warranty2"></p>
-                </div>
-              </el-tab-pane>
+<!--              <el-tab-pane name="third">-->
+<!--                <span slot="label"><i class="far fa-hand-pointer "></i> 应用领域</span>-->
+<!--                <div class="wrapper">-->
+<!--                  <p v-html="applications" style="text-align: justify;"></p>-->
+<!--                </div>-->
+<!--              </el-tab-pane>-->
+<!--              <el-tab-pane name="fourth">-->
+<!--                <span slot="label"><i class="far fa-sun "></i> 保证</span>-->
+<!--                <div class="wrapper">-->
+<!--                  <p style="text-align: justify;" v-html="warranty1"></p>-->
+<!--                  <p style="text-align: left;" v-html="warranty2"></p>-->
+<!--                </div>-->
+<!--              </el-tab-pane>-->
             </el-tabs>
           </div>
         </el-col>
-        <el-col :xl="6" :lg="6" :md="6" :sm="6" :xs="24" class="column-inner button-box">
-          <div class="button-wrapper">
-            <a href="https://www.hexis-graphics.com/en/produit/bodyfence/" style="color:white" target="_blank">
-              <i class="fas fa-file-alt"></i>
-              <span>数据表</span>
-            </a>
-          </div>
-        </el-col>
-        <el-col :xl="6" :lg="6" :md="6" :sm="6" :xs="24" class="column-inner button-box">
-          <div class="button-wrapper">
-            <a href="https://www.hexis-graphics.com/en/distribution/" style="color:white" target="_blank">
-              <i class="fas fa-truck-loading"></i>
-              <span>采购</span>
-            </a>
-          </div>
-        </el-col>
+<!--        <el-col :xl="6" :lg="6" :md="6" :sm="6" :xs="24" class="column-inner button-box">-->
+<!--          <div class="button-wrapper">-->
+<!--            <a href="https://www.hexis-graphics.com/en/produit/bodyfence/" style="color:white" target="_blank">-->
+<!--              <i class="fas fa-file-alt"></i>-->
+<!--              <span>数据表</span>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :xl="6" :lg="6" :md="6" :sm="6" :xs="24" class="column-inner button-box">-->
+<!--          <div class="button-wrapper">-->
+<!--            <a href="https://www.hexis-graphics.com/en/distribution/" style="color:white" target="_blank">-->
+<!--              <i class="fas fa-truck-loading"></i>-->
+<!--              <span>采购</span>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </el-col>-->
       </el-row>
     </div>
 <!--    <div style="background-color:#fff; height: 1000px;width: 100%"></div>-->
@@ -89,11 +113,15 @@
     props: {
       videoTitleBlackP:{
         type: String,
-        default: "车身"
+        default: "BODYFENCE"
+      },
+      indicativeValueP:{
+        type: String,
+        default: "155"
       },
       videoTitleRedP:{
         type: String,
-        default: "防护膜"
+        default: " PPF"
       },
       filmsTitleP: {
         type: String,
@@ -104,73 +132,76 @@
       filmsContentTopP: {
         type: String,
         default: `
-              我们很高兴推出新一代的车身保护模。新的<strong>BODYFENCE</strong>系列是由 HEXIS R&amp;D基于尖端技术开发的，可保护您的车辆免受外部侵害：
+              全新<strong>BODYFENCE</strong>漆面保护膜，极致呵护您的爱车！
         `
       },
       filmsUlP: {
         type: String,
         default: `
-                <li style="color: #de0022;"><span style="color: #000;">划痕</span></li>
-                <li style="color: #de0022;"><span style="color: #000;">石片</span></li>
-                <li style="color: #de0022;"><span style="color: #000;">磨损</span></li>
-                <li style="color: #de0022;"><span style="color: #000;">紫外线</span></li>
+                <li style="color: #de0022;"><span style="color: #000;">极致抗刮擦</span></li>
+                <li style="color: #de0022;"><span style="color: #000;">防止石子磨损</span></li>
+                <li style="color: #de0022;"><span style="color: #000;">防止紫外线损伤车漆</span></li>
         `
       },
       filmsFooterP: {
         type: String,
         default: `
-                另外，该膜通过防止灰尘附着在涂漆上而有助于清洁。它将保持您的车辆...永远年轻！
+
         `
       },
-      rollSizeP: {
-        type: String,
-        default: `
-                    <strong><label style="color: #de0022;">宽度 (毫米) :</label></strong>&nbsp;615, 760, 1230, 1520<br>
-                    <strong><label style="color: #de0022;">长度 (厘米) :</label></strong>&nbsp;5, 10, 20
-         `
-      },
-      sizeMoreP: {
-        type: String,
-        default: `<em>这些宽度和长度并非在所有的国家/地区都可用。请查阅更多细节。</em>`
-      },
-      featuresP: {
-        type: String,
-        default: `
-                <strong><label style="color: #de0022;">产品类型:</label></strong>&nbsp;保护模<br>
-                <strong><label style="color: #de0022;">耐久性:</label>&nbsp;</strong>长期<br>
-                <strong><label style="color: #de0022;">胶粘剂:</label></strong>&nbsp;溶剂型丙烯酸酯胶粘剂<br>
-                <strong><label style="color: #de0022;">类型:&nbsp;</label></strong>溶剂型丙烯酸酯<br>
-                <strong><label style="color: #de0022;">胶粘剂颜色:</label></strong>&nbsp;透明<br>
-                <strong><label style="color: #de0022;">内衬:</label></strong>&nbsp;PET 硅酮<br>
-                <strong><label style="color: #de0022;">产品代码:</label></strong>&nbsp;BODYFENCE
-              `
-      },
-      applicationsP: {
-        type: String,
-        default: `
-                只要目标表面清洁，光滑，无孔并且没有任何油，油脂，蜡，硅酮或其他污染物的痕迹，您的<strong>BODYFENCE</strong>膜就可以应用于任何车身。为避免意外结果，请始终假定每个基材都脏了，需要清理。
-        `
-      },
+      // rollSizeP: {
+      //   type: String,
+      //   default: `
+      //               <strong><label style="color: #de0022;">宽度 (毫米) :</label></strong>&nbsp;615, 760, 1230, 1520<br>
+      //               <strong><label style="color: #de0022;">长度 (厘米) :</label></strong>&nbsp;5, 10, 20
+      //    `
+      // },
+      // sizeMoreP: {
+      //   type: String,
+      //   default: `<em>这些宽度和长度并非在所有的国家/地区都可用。请查阅更多细节。</em>`
+      // },
+      // featuresP: {
+      //   type: String,
+      //   default:`
+      //           <h4 style="text-decoration: underline;">FILM FEATURES:</h4>
+      //           <p style="text-decoration: underline;text-align: center">Indicative value</p>
+      //           <ul>
+      //
+      //           </ul>
+      //   `
+      // },
+      // applicationsP: {
+      //   type: String,
+      //   default: `
+      //           只要目标表面清洁，光滑，无孔并且没有任何油，油脂，蜡，硅酮或其他污染物的痕迹，您的<strong>BODYFENCE</strong>膜就可以应用于任何车身。为避免意外结果，请始终假定每个基材都脏了，需要清理。
+      //   `
+      // },
       warranty1P: {
         type: String,
         default: `
-                所述<strong style="color: #de0022;">Hexis</strong> «<strong>BODYFENCE</strong>»保修适用于的产品（不含配件），其中使用的，转化的，并且根据在所述的要求实现的Bodyfence范围<strong style="color: #de0022;">Hexis</strong>技术数据表和应用指南。
+<!--                所述<strong style="color: #de0022;">Hexis</strong> «<strong>BODYFENCE</strong>»保修适用于的产品（不含配件），其中使用的，转化的，并且根据在所述的要求实现的Bodyfence范围<strong style="color: #de0022;">Hexis</strong>技术数据表和应用指南。-->
+                  按照官方指导，享受十年质保（自上电子质保日算起）
         `
       },
       warranty2p: {
         type: String,
         default: `
-               该保修从<strong>BODYFENCE</strong>保护膜的购买日期开始（安装发票作为证明）。此保修仅涵盖以下缺陷：产品泛黄和破裂。
+<!--               该保修从<strong>BODYFENCE</strong>保护膜的购买日期开始（安装发票作为证明）。此保修仅涵盖以下缺陷：产品泛黄和破裂。-->
+                  质保请参阅相关资料
         `
       },
       iframeP: {
         type: String,
         default: ""
+      },
+      mattLogoSP: {
+        type: String,
+        default: "false"
       }
     },
     data() {
       return {
-        activeName: "first",
+        activeName: "second",
         videoTitleBlack: this.videoTitleBlackP,
         videoTitleRed: this.videoTitleRedP,
         filmsTitle: this.filmsTitleP,
@@ -183,11 +214,14 @@
         applications: this.applicationsP,
         warranty1: this.warranty1P,
         warranty2: this.warranty2p,
-        iframe: this.iframeP
+        iframe: this.iframeP,
+        indicativeValue: this.indicativeValueP,
+        mattLogoS: this.mattLogoSP
       }
     }
   }
 </script>
+
 
 <style scoped>
   #protectionFile {
@@ -286,6 +320,52 @@
     .wrapper iframe {
       height: 352px;
     }
+  }
+  .film_features {
+    font-weight: 900;
+    font-size: 24px;
+    text-decoration: underline;
+  }
+  .features_list {
+    float: left;
+    width: 53%;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  .indicative_value li {
+    list-style: none;
+    line-height: 30px;
+    /*text-align: center;*/
+  }
+  ul.indicative_value {
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .standard{
+    float: left;
+    line-height: 30px;
+    text-align: left;
+
+  }
+  .standard li {
+    list-style: none;
+    margin-left: 20px;
+  }
+  .mattLogF {
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .mattLogo {
+    position: absolute;
+    right: -10px;
+    top: -50px;
+    color: white;
+    font-size: 70px;
+    font-style: normal;
+    text-shadow:0 0 15px rgba(0,0,0,0.3);
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   }
 
 </style>

@@ -24,7 +24,7 @@
                 <!-- 发送消息 -->
                 <li id="field_1" class="form_fields" style="border-bottom: 1px solid #CCC;🐴">
                   <h2 class="message_title">发送消息</h2>
-                  <div class="message_detail">请填写这张表格，我们会尽快给你答复</div>
+                  <div class="message_detail">请填写这张表格，我们会尽快给您答复</div>
                 </li>
                 <!-- 发送消息 -->
 
@@ -84,7 +84,7 @@
                 <!--你的意见 -->
                 <li id="field_6_textArea" class="form_fields">
                   <label class="form_label">
-                    你的意见
+                    您的意见
                     <span class="asterisk">*</span>
                   </label>
                   <div>
@@ -107,14 +107,14 @@
 
               <!-- 按钮 -->
               <div class="input_button">
-                <input
+                <a :href="emailHref"><input
                   type="submit"
                   id="submit_button"
                   class="form_button button"
                   value="提交"
                   v-on:click="submit"
                   @keyup.enter="submit"
-                />
+                /></a>
               </div>
               <!-- 按钮 -->
             </div>
@@ -131,7 +131,7 @@
 
         <!-- 版权声明 -->
         <div class="statement">
-          <p>为了管理我们的客户数据库，收集的数据被存储起来。数据接收人：SAS HEXIS DESIGN ~ HEXIS S.A.根据法国数据保护法，您有权通过写信给SAS HEXIS DESIGN，Z.I.Horizons Sud CS 970003118 FRONTIGNAN CEDEX，France来访问和更正您的个人信息。出于正当理由，您也可以反对处理您的个人数据。</p>
+          <p>HEXIS中国对所提交数据拥有最终拥有权、解释权。</p>
         </div>
 
       </div>
@@ -215,20 +215,21 @@ export default {
       zip: "",
       email:"",
       phone: "",
-      nideyijian: ""
+      nideyijian: "",
+      emailHref:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=联系我们&body="+
+          "姓名："+this.lastName+this.firstName+
+          "%0a%0d 公司名：" + this.companyName +
+          "%0a%0d 地  址：" + this.cAddress +
+          "%0a%0d 邮政编码：" + this.zip +
+          "%0a%0d 邮箱地址：" + this.email +
+          "%0a%0d 电话号码：" + this.phone +
+          "%0a%0d 你的意见：" + this.nideyijian
     };
   },
 
   methods: {
     submit: function() {
-      location = "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=联系我们&body="+
-        "姓名："+this.lastName+this.firstName+
-        "%0a%0d 公司名：" + this.companyName +
-        "%0a%0d 地  址：" + this.cAddress +
-        "%0a%0d 邮政编码：" + this.zip +
-        "%0a%0d 邮箱地址：" + this.email +
-        "%0a%0d 电话号码：" + this.phone +
-        "%0a%0d 你的意见：" + this.nideyijian;
+      location = this.emailHref;
     }
   },
 

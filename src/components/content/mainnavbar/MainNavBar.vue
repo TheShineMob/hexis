@@ -3,7 +3,7 @@
     <nav-bar :max-width="1340" ref="navBar">
       <nav-bar-brand></nav-bar-brand>
       <nav-bar-toggler v-on:togglerClick="togglerClick"></nav-bar-toggler>
-      <nav-bar-menu v-show="isHidden" class="menu-animation">
+        <nav-bar-menu v-if="isHidden" class="menu-animation">
           <nav-bar-menu-item ToWhere="首页" ToPath="/home" :FlexBasis="80" />
           <el-dropdown placement="top" :show-timeout="100">
             <nav-bar-menu-item ToWhere="产品" :IsDropdown="true" :FlexBasis="140" ToPath="/features" />
@@ -109,9 +109,14 @@
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
   }
-  .menu-animation {
-    transition: all .5s;
-  }
+ /*.fade-enter-active, .fase-leave-active {*/
+ /*  transform-origin: top;*/
+ /*  transition: all .5s;*/
+ /*}*/
+ /* .fade-enter, .fade-leave-to {*/
+ /*   transform-origin: top;*/
+ /*   transform: scale(1,0);*/
+ /* }*/
 
 
 </style>

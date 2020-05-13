@@ -1,16 +1,16 @@
 <template>
   <div class="hello">
     <!-- <div style="background:white"> -->
-    <div class="line_01 vanwee">
-      <div class="line_01_left">
+    <div class="line_01 ">
+      <div class="line_01_left vanwee">
         <span>车身护栏漆保护膜</span>
         <br />
         <span>海克斯</span>
       </div>
-      <div class="line_01_right">
+      <div class="line_01_right vanwee2">
         <div>
-          新
-          <span>车身防护膜</span> 系列已由海克斯研发中心开发
+          全新
+          <span>BODYFENCE</span> 由HEXIS研发实验室出品
         </div>
         <div style="margin:0 auto;" >
           <!-- <div>LEARN MORE</div>
@@ -26,23 +26,23 @@
     </div>
     <!-- </transition> -->
     <!-- </div> -->
-    <div class="line_02 vanwee ">
-      <div class="wenzi">
+    <div class="line_02 ">
+      <div class="wenzi vanwee2">
         <div class="wenziUp">
           <span>
-           为什么要用防护膜
-            <br />?
+           选择BODYFENCE的理由
+            ?
             <br />
             <br />
           </span>
-          <span>保护你的车身</span>
+          <span>自保护</span>
         </div>
         <div class="wenziBottom">
           <div style="width:100%;margin-left:20%;overflow: hidden;">
             <div class="bott">
               <div>
                 <span>
-                  保护膜
+                  自修复
                   <br />
                 </span>
               </div>
@@ -53,7 +53,7 @@
             <div class="bott">
               <div>
                 <span>
-                  自我恢复
+                  超亮度
                   <br />
                 </span>
               </div>
@@ -64,7 +64,7 @@
             <div class="bott">
               <div>
                 <span>
-                  超透明
+                  自清洁
                   <br />
                 </span>
               </div>
@@ -75,7 +75,7 @@
             <div class="bott">
               <div>
                 <span>
-                  自我清洁
+                  极致呵护车漆
                   <br />
                 </span>
               </div>
@@ -86,7 +86,7 @@
           </div>
         </div>
       </div>
-      <div class="car">
+      <div class="car vanwee">
         <div  style="margin-left: 15%">
           <img src="../../../assets/img/zl/car4.png" alt />
           <br />
@@ -97,8 +97,8 @@
         </div>
       </div>
     </div>
-    <div class="line_03 vanwee">
-      <div class="wenzi">
+    <div class="line_03 ">
+      <div class="wenzi vanwee">
         <div class="wenziUp">
           <span>
             海克斯设计
@@ -106,12 +106,12 @@
             <br />
           </span>
           <span>
-            软件
+            HEXIS裁切软件
             <br />
             <br />
           </span>
           <span>
-            <b>海克斯设计</b> 提供一个最完整的软件解决方案来创建油漆和灯保护膜套件
+            <b>HEXIS</b> 裁切软件给您提供海量数据
           </span>
           <div style="text-align:center">
             <el-button type="primary" @click="toSoftware">
@@ -121,25 +121,24 @@
           </div>
         </div>
       </div>
-      <div class="car">
+      <div class="car vanwee2">
         <div style="margin-left: 15%">
           <img src="../../../assets/img/zl/hexisDesignLogo.png" alt />
           <br />
         </div>
       </div>
     </div>
-    <div class="line_04 vanwee">
-      <div class="wenzi">
+    <div class="line_04 ">
+      <div class="wenzi vanwee2">
         <div class="wenziUp">
           <span>
-           你需要一个认证的安装程序吗?
+           “授权店”体系
             <br />
             <br />
           </span>
           <span>
-            转到世界地图
-            <br />
-            <br />
+
+
           </span>
           <span>
             应用部门 <b>海克斯</b> 已经建立了一个由认可的安装人员组成的网络，为客户提供高性能和响应性强的服务。
@@ -147,7 +146,7 @@
           <div style="text-align:center"></div>
         </div>
       </div>
-      <div class="car">
+      <div class="car vanwee">
         <div  style="margin-left: 10%">
           <img src="../../../assets/img/zl/map.png" alt />
           <br />
@@ -158,18 +157,16 @@
         </div>
       </div>
     </div>
-    <div class="line_05 vanwee">
-      <div class="wenzi">
+    <div class="line_05 ">
+      <div class="wenzi vanwee">
         <div class="wenziUp">
           <span>
-            如何获取认证安装程序?
+            如何获得HEXIS 裁切软件
             <br />
             <br />
           </span>
           <span>
-            你的认证
-            <br />
-            <br />
+
           </span>
           <span>为了整合海克斯网络认证安装人员，将对参与者的技术技能和知识进行评估。</span>
           <div style="text-align:center">
@@ -180,7 +177,7 @@
           </div>
         </div>
       </div>
-      <div class="car">
+      <div class="car vanwee2">
         <div  style="margin-left: 15%">
           <img src="../../../assets/img/zl/hexisDesignLogo.png" alt />
           <br />
@@ -307,19 +304,12 @@ export default {
 .el-icon-search:before {
   font-weight: bolder;
 }
-/* .v-enter {
-  opacity: 0;
-}
-.v-enter-active {
-  transition: opacity 6s;
-
-} */
 .line_02 {
   width: 100%;
   height: auto;
   overflow: hidden;
   background: rgb(239, 239, 239);
-  padding: 10rem 0;
+  padding: 1rem 0 4rem 0;
 }
 .line_02 > div {
   width: 50%;
@@ -332,7 +322,7 @@ export default {
 .wenziUp span:nth-child(1) {
   line-height: 5rem;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 4.8rem;
 }
 .wenziUp span:nth-child(2) {
@@ -377,7 +367,7 @@ export default {
   background: white;
   height: auto;
   overflow: hidden;
-  padding: 10rem 0;
+  padding: 1rem 0 4rem 0;
   /* padding-bottom: 3rem; */
 }
 .line_03 > div {
@@ -389,7 +379,7 @@ export default {
   background: rgb(239, 239, 239);
   height: auto;
   overflow: hidden;
-  padding: 10rem 0;
+  padding: 1rem 0 4rem 0;
 }
 .line_04 > div {
   float: left;
@@ -400,7 +390,7 @@ export default {
   background: white;
   overflow: hidden;
   height: auto;
-  padding: 10rem 0;
+  padding: 1rem 0 4rem 0;
   /* padding-bottom: 3rem; */
 }
 .line_05 > div {
@@ -433,6 +423,7 @@ export default {
   }
 }
 
+
 .f-up {
   animation-name: f-up;
   /*动画名称*/
@@ -443,6 +434,40 @@ export default {
   animation-delay: 0s;
   /*延迟时间*/
 }
+
+
+
+
+@keyframes f-down {
+  0% {
+    will-change: transform;
+    display: none;
+    opacity: 0;
+    /*初始状态 透明度为0*/
+    transform: translateY(-20rem);
+    /*初始状态 文档流下100px*/
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    /*结尾状态 透明度为1*/
+    transform: translateY(0px);
+    /*初始状态 恢复正常位置*/
+  }
+}
+
+.f-down {
+  animation-name: f-down;
+  /*动画名称*/
+  animation-duration: 3s;
+  /*动画持续时间*/
+  animation-iteration-count: 1;
+  /*动画次数*/
+  animation-delay: 0s;
+  /*延迟时间*/
+}
+
 
 @media screen and (max-width: 996px) {
   .line_01 {
