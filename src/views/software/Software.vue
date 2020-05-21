@@ -26,13 +26,13 @@
                                     <h3>introduction</h3>
                                 </div><!-- 标题2 -->
                                 <!-- 具体介绍 -->
-                                <div class="text_column">
+                                <div class="text_column" id="introduction">
                                     <p >
                                       海量数据！
                                       <br />
                                       涵盖全球车型！
                                       <br />
-                                      为中国特制适合中国车型的海量数据!
+                                      特别增加中国车型数据!
                                     </p>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                         <div class="gs_step_title">
                                             <ul>
                                                 <li>
-                                                    <h3>第1步</h3>
+                                                    <h3>第一步</h3>
                                                 </li>
                                             </ul>
                                         </div>
@@ -129,13 +129,14 @@
                                          <div class="gs_step_title">
                                             <ul>
                                                 <li>
-                                                    <h3>第2步</h3>
+                                                    <h3>第二步</h3>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="gs_step_text">
                                             <div class="text_column">
-                                                 <p>HEXIS中国专员与您具体对接，在您按照流程付款之后，将获得您专有的激活密钥。从而激活您的产品。</p>
+                                                 <p>HEXIS中国专员教授您软件使用方法，让您彻底拥有HEXIS DESIGN SOFTWARE。
+                                                   为您提供全方位呵护。</p>
                                                     <br>
                                                     <br>
                                             </div>
@@ -209,7 +210,7 @@
                                 </div>
 
                                 <div class="form_footer" >
-                                    <input
+                                  <a :href="emailHref"><input
                                         type="submit"
                                         id="submit_button"
                                         class="form_button button"
@@ -217,6 +218,7 @@
                                         v-on:click="submit"
                                         @keyup.enter="submit"
                                         />
+                                  </a>
                                 </div>
 
                             </div>
@@ -304,9 +306,14 @@ export default {
                 phone: "400-096-19891",
                 email: "so-fine@hexis.cn"
             },
-          emailHref: "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=信息登记表&body="+"公司名："+this.name+"%0a%0d 增值税号："+this.zengzhizhuiNumber+"%0a%0d 所在城市："+this.city
-              +"%0a%0d 详细地址："+this.yAddress+"%0a%0d 邮箱地址：" + this.email + "%0a%0d 手机号码："+ this.phone
+          href: "mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=信息登记表&body="
         };
+    },
+    computed: {
+      emailHref: function () {
+        return this.href+"公司名："+this.name+"%0a%0d 增值税号："+this.zengzhizhuiNumber+"%0a%0d 所在城市："+this.city
+            +"%0a%0d 详细地址："+this.yAddress+"%0a%0d 邮箱地址：" + this.email + "%0a%0d 手机号码："+ this.phone;
+      }
     },
     methods: {
       submit() {
@@ -384,6 +391,10 @@ img{
 }
 .text_column{
     margin-bottom: 35px;
+
+}
+#introduction {
+  font-size: 2rem;
 }
 
 .site-content {

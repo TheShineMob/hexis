@@ -2,18 +2,19 @@
   <div>
     <div class="body-fence">
       <div class="body-fence-header">
-        <div class="video-box">
-          <iframe
-            frameborder="0"
-            allowfullscreen="1"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            title="YouTube video player"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/yk33cN8qUMM?playlist=yk33cN8qUMM&iv_load_policy=3&enablejsapi=1&disablekb=1&autoplay=1&controls=0&showinfo=0&rel=0&loop=1&wmode=transparent&origin=https%3A%2F%2Fwww.bodyfence.net&widgetid=1" id="widget2"
-            style="max-width: 1000%;  margin-bottom: 0;height: 1500px;margin-top: -550px" class="myIframe">
-          </iframe>
-        </div>
+<!--        <div class="video-box">-->
+<!--          <iframe-->
+<!--            frameborder="0"-->
+<!--            allowfullscreen="1"-->
+<!--            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
+<!--            title="YouTube video player"-->
+<!--            width="100%"-->
+<!--            height="100%"-->
+<!--            src="https://www.youtube.com/embed/yk33cN8qUMM?playlist=yk33cN8qUMM&iv_load_policy=3&enablejsapi=1&disablekb=1&autoplay=1&controls=0&showinfo=0&rel=0&loop=1&wmode=transparent&origin=https%3A%2F%2Fwww.bodyfence.net&widgetid=1" id="widget2"-->
+<!--            style="max-width: 1000%;  margin-bottom: 0;height: 1500px;margin-top: -550px" class="myIframe">-->
+<!--          </iframe>-->
+<!--        </div>-->
+        <div id="body-fence-bg" class="bg" :style="{'background-position-x':positionX, 'background-position-y': positionY-250+'px'}"></div>
       </div>
     </div>
     <div class="body-fence-space"></div>
@@ -46,6 +47,33 @@
     components: {
       ProtectionFilm,
       OtherProducts,
+    },
+    data() {
+      return {
+        ratio: 0.35,
+        positionY: 1,
+        positionX: '40%',
+        Y: 10,
+      }
+    },
+    watch: {
+      positionY: function (newPosition) {
+        this.positionY = newPosition
+      }
+    },
+    mounted() {
+      window.addEventListener("scroll", this.handleScroll);
+      window.onload = () => {
+        let bg = document.getElementById("body-fence-bg");
+        this.Y = bg.offsetTop * this.ratio;
+        this.positionY = bg.offsetTop * this.ratio;
+      };
+    },
+    methods: {
+      handleScroll() {
+        let scrollTop =window.pageYOffset ||document.documentElement.scrollTop ||document.body.scrollTop;
+        this.positionY = this.Y - scrollTop * this.ratio;
+      }
     }
   }
 /*静音*/
@@ -61,9 +89,10 @@
   .body-fence-header {
     width: 100%;
     height: 435px;
-    position: relative;
-    display: flex;
-    flex: 1;
+    overflow: hidden;
+    /*position: relative;*/
+    /*display: flex;*/
+    /*flex: 1;*/
   }
   .video-box {
     height: 100%;
@@ -81,6 +110,23 @@
     background-color: black;
     display: none;
   }
+
+
+  #body-fence-bg {
+    height: 100%;
+    background-image: url("../../assets/img/product/bodyFence/bodyFence-bg.jpg");
+    background-attachment: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  @media all and (max-width: 1200px) {
+    .bg {
+      background-size: cover !important;
+      background-position-x: 100%!important;
+    }
+  }
+
   @media all and (max-width: 826px) {
     .body-fence {
       display: none;

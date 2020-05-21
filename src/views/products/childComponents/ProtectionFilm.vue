@@ -11,7 +11,7 @@
           </div>
         </el-col>
       </el-row>
-      <el-row class="el-row-margin-bottom">
+      <el-row class="el-row-margin-bottom" >
         <el-col :xl="12" :lg="12" :md="12" :sm="12" :xs="24" class="column-inner">
           <div class="wrapper">
             <p v-html="filmsTitle"></p>
@@ -22,9 +22,10 @@
             <p style="text-align: justify;" v-html="filmsFooter"></p>
           </div>
         </el-col>
-        <el-col :xl="12" :lg="12" :md="12" :sm="12" :xs="24" class="column-inner">
-          <div class="wrapper">
-            <iframe  :src="iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+        <el-col :xl="12" :lg="12" :md="12" :sm="12" :xs="24"  ref="video">
+          <div class="wrapper" >
+            <video src="../../../assets/video/hexis-protect-your-paint-bodyfence.mp4" controls="controls" :width="videoWidth" poster="../../../assets/img/product/bodyFence/maxresdefault.jpg" ></video>
+            <!--            <iframe  :src="iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>-->
           </div>
         </el-col>
       </el-row>
@@ -41,12 +42,12 @@
 <!--              </el-tab-pane>-->
               <el-tab-pane name="second">
                 <span slot="label"><i class="fas fa-info "></i> 特征</span>
-                <div class="wrapper mattLogF">
-                  <i class="mattLogo" v-show="mattLogoS">MATT</i>
-<!--                  <p v-html="theFeatures" style="text-align: justify;"></p>-->
+                <div class="wrapper mattLogF" :class="[mattLogoS?mattLogFt:'']">
+                  <!-- <img src="../../../assets/img/product/bodyFence/bodyfence.png" alt=""> -->
+                  <!-- <i class="mattLogo" v-show="mattLogoS">MATT</i>
                   <h4 class="film_features" style="margin-bottom: 0">FILM FEATURES:</h4>
-                  <h5 style="position: relative;left: 53%;text-decoration: underline;font-weight: 700;font-size: 16px;">Indicative value</h5>
-                  <ul class="features_list" style="margin:0;">
+                  <h5 style="position: relative;left: 53%;text-decoration: underline;font-weight: 700;font-size: 16px;width:100px;">Indicative value</h5> -->
+                  <!-- <ul class="features_list" style="margin:0;">
                     <li class="item1">Thickness(um):</li>
                     <li class="item2" style="list-style: none"><br /></li>
                     <li class="item3">Tensile strength (N/25 mm):</li>
@@ -58,15 +59,15 @@
                     <li style="text-decoration: underline;font-weight: 700;font-size: 16px">Average values</li>
                     <li>> 100</li>
                     <li>> 350</li>
-                    <li>< 0.2</li>
+                    <li>&lt; 0.2</li>
                   </ul>
-                  <ul class="standard" style="margin:0;padding: 0">
+                  <ul class="standard" style="margin:0;padding: 0 0 30px 0">
                     <li style="list-style: none;"><br /></li>
                     <li style="list-style:none;text-decoration: underline;font-weight: 700">Standard</li>
                     <li>HEXNFX41021</li>
                     <li>HEXNFX41021</li>
                     <li>HEXRET001</li>
-                  </ul>
+                  </ul> -->
                 </div>
               </el-tab-pane>
 <!--              <el-tab-pane name="third">-->
@@ -103,7 +104,7 @@
 <!--        </el-col>-->
       </el-row>
     </div>
-<!--    <div style="background-color:#fff; height: 1000px;width: 100%"></div>-->
+<!--    <div style="background-color:#fff; he ight: 1000px;width: 100%"></div>-->
   </div>
 </template>
 
@@ -216,7 +217,24 @@
         warranty2: this.warranty2p,
         iframe: this.iframeP,
         indicativeValue: this.indicativeValueP,
-        mattLogoS: this.mattLogoSP
+        mattLogoS: this.mattLogoSP,
+        mattLogFt: "mattLogFt",
+        videoWidth: 0
+      }
+    },
+    created() {
+      window.addEventListener("resize", this.videoFWidth)
+    },
+    mounted() {
+      this.videoWidth = this.videoFWidth();
+    },
+    destroyed() {
+      window.removeEventListener("resize", this.videoFWidth);
+    },
+    methods: {
+      videoFWidth() {
+        this.videoWidth = this.$refs.video.$el.offsetWidth;
+        return this.videoWidth;
       }
     }
   }
@@ -314,6 +332,7 @@
     .wrapper iframe {
       height: 312px;
     }
+
   }
 
   @media all and (min-width: 1366px) {
@@ -355,7 +374,15 @@
   }
   .mattLogF {
     position: relative;
+    height: 220px;
+    /* background: url() cover 100% 100%; */
+    background-image: url(../../../assets/img/product/bodyFence/bodyfence.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
     padding-bottom: 20px;
+  }
+  .mattLogFt {
+    background-image: url(../../../assets/img/product/bodyFenceMatt/bodyfenceMatt.jpg);
   }
   .mattLogo {
     position: absolute;

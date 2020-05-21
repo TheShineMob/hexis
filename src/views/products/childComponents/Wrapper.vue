@@ -8,7 +8,8 @@
         </h2>
       </div>
       <div class="wrapper-video wrapper-margin-bottom">
-        <iframe id="video_iframe" ref="video_iframe" :src="videoUrl" :style="'height:'+videoHeight+'%'" class="video-wrapper" frameborder="0" title="HEXIS – Car protection film - Self Healing - BODYFENCE" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe>
+        <video id="video_iframe" ref="video_iframe" controls="controls" :poster="poster" :src="videoUrl" class="video-wrapper"></video>
+        <!--        <iframe id="video_iframe" ref="video_iframe" :src="videoUrl" :style="'height:'+videoHeight+'%'" class="video-wrapper" frameborder="0" title="HEXIS – Car protection film - Self Healing - BODYFENCE" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe>-->
       </div>
       <div class="wrapper-text wrapper-margin-bottom">
         <div class="wrapper-text-box">
@@ -31,22 +32,27 @@
       textBox1P: String,
       textBox2P: String,
       textBox3P: String,
+      posterP: String
     },
     data() {
       return {
         videoTitleBlack: this.videoTitleBlackP,
         videoTitleRed: this.videoTitleRedP,
-        videoUrl: this.videoUrlP,
+        videoUrl: require("../../../assets/video/" + this.videoUrlP),
         textBox1: this.textBox1P,
         textBox2: this.textBox2P,
         textBox3: this.textBox3P,
-        videoHeight: "",
+        poster: require("../../../assets/img/product/tx/" + this.posterP),
+        videoWidth: 0,
       }
     }
   }
 </script>
 
 <style scoped>
+  *{
+    outline: none;
+  }
   .wrapper-base {
     width: 100%;
     height: auto;

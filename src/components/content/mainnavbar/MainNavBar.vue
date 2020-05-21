@@ -3,24 +3,26 @@
     <nav-bar :max-width="1340" ref="navBar">
       <nav-bar-brand></nav-bar-brand>
       <nav-bar-toggler v-on:togglerClick="togglerClick"></nav-bar-toggler>
+      <transition name="bar_action">
         <nav-bar-menu v-if="isHidden" class="menu-animation">
-          <nav-bar-menu-item ToWhere="首页" ToPath="/home" :FlexBasis="80" />
-          <el-dropdown placement="top" :show-timeout="100">
+          <nav-bar-menu-item ToWhere="首页" ToPath="/home" :FlexBasis="80" v-if="isHidden" />
+          <el-dropdown placement="top" :show-timeout="100" v-if="isHidden">
             <nav-bar-menu-item ToWhere="产品" :IsDropdown="true" :FlexBasis="140" ToPath="/features" />
             <div class="edit-div">
               <el-dropdown-menu slot="dropdown">
                 <div class="edit-div">
                   <el-dropdown-item class="hvr-underline-from-left"><router-link to="/features" tag="a">特性</router-link> </el-dropdown-item>
-                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFence" tag="a">车身防护膜</router-link> </el-dropdown-item>
-                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFenceMatt" tag="a">哑光车身防护膜</router-link> </el-dropdown-item>
+                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFence" tag="a">BODYFENCE GLOSS</router-link> </el-dropdown-item>
+                  <el-dropdown-item class="hvr-underline-from-left"><router-link to="/bodyFenceMatt" tag="a">BODYFENCE MATT</router-link> </el-dropdown-item>
                 </div>
               </el-dropdown-menu>
             </div>
           </el-dropdown>
-          <nav-bar-menu-item ToWhere="软件" :FlexBasis="70" ToPath="/software" />
-          <nav-bar-menu-item ToWhere="查询" ToPath="/find" :FlexBasis="70" />
-          <nav-bar-menu-item ToWhere="联系我们" ToPath="/contact" :FlexBasis="110"/>
+          <nav-bar-menu-item ToWhere="软件" :FlexBasis="70" ToPath="/software" v-if="isHidden" />
+          <nav-bar-menu-item ToWhere="查询" ToPath="/find" :FlexBasis="70" v-if="isHidden" />
+          <nav-bar-menu-item ToWhere="联系我们" ToPath="/contact" :FlexBasis="110" v-if="isHidden" />
         </nav-bar-menu>
+      </transition>
     </nav-bar>
   </div>
 </template>
@@ -46,14 +48,20 @@
         this.isHidden = !this.isHidden;
       }
     },
+    updated() {
+      this.navBarWidth = this.$refs.navBar.$el.offsetWidth;
+    },
     data() {
       return {
-        isHidden: true
+        isHidden: true,
+        navBarWidth: 0
       }
     },
-    updated(){
-      if(this.$refs.navBar.offsetHeight >= 1200 ) {
-        this.isHidden = true
+    watch: {
+      navBarWidth: function (newV,oldV) {
+        if(newV !== oldV && newV > 1200 && this.isHidden === false) {
+          this.isHidden = true;
+        }
       }
     }
   }
@@ -87,6 +95,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    font-size: 20px;
   }
 
   .hvr-underline-from-left a:hover:before, .hvr-underline-from-left a:focus:before, .hvr-underline-from-left a:active:before {
@@ -118,5 +127,15 @@
  /*   transform: scale(1,0);*/
  /* }*/
 
+  .bar_action-enter-active, .bar_action-leave-active {
+    height: 270px;
+    opacity: 1;
+    transition: all .5s;
+  }
+  .bar_action-enter, .bar_action-leave-to {
+    height: 0;
+    opacity: 0;
+    font-size: 0;
+  }
 
 </style>

@@ -2,10 +2,10 @@
   <div class="hello">
     <!-- <div style="background:white"> -->
     <div class="line_01 ">
-      <div class="line_01_left vanwee">
-        <span>车身护栏漆保护膜</span>
+      <div class="line_01_left vanwee" style="text-align:center;">
+        <span>THE PAINT PROTECTION FILM BODYFENCE</span>
         <br />
-        <span>海克斯</span>
+        <span><strong>BY HEXIS</strong></span>
       </div>
       <div class="line_01_right vanwee2">
         <div>
@@ -30,12 +30,11 @@
       <div class="wenzi vanwee2">
         <div class="wenziUp">
           <span>
-           选择BODYFENCE的理由
-            ?
+           选择BODYFENCE的理由?
             <br />
             <br />
           </span>
-          <span>自保护</span>
+<!--          <span>自保护</span>-->
         </div>
         <div class="wenziBottom">
           <div style="width:100%;margin-left:20%;overflow: hidden;">
@@ -101,7 +100,7 @@
       <div class="wenzi vanwee">
         <div class="wenziUp">
           <span>
-            海克斯设计
+            HEXIS
             <br />
             <br />
           </span>
@@ -140,9 +139,9 @@
 
 
           </span>
-          <span>
-            应用部门 <b>海克斯</b> 已经建立了一个由认可的安装人员组成的网络，为客户提供高性能和响应性强的服务。
-          </span>
+<!--          <span>-->
+<!--            应用部门 <b>HEXIS</b> 已经建立了一个由认可的安装人员组成的网络，为客户提供高性能和响应性强的服务。-->
+<!--          </span>-->
           <div style="text-align:center"></div>
         </div>
       </div>
@@ -161,14 +160,16 @@
       <div class="wenzi vanwee">
         <div class="wenziUp">
           <span>
-            如何获得HEXIS 裁切软件
+<!--            如何获得 HEXIS 裁切软件-->
+            如何成为认证技师
             <br />
             <br />
           </span>
           <span>
 
           </span>
-          <span>为了整合海克斯网络认证安装人员，将对参与者的技术技能和知识进行评估。</span>
+<!--          <span>为了整合 <strong>HEIXS</strong> 网络认证安装人员，将对参与者的技术技能和知识进行评估。</span>-->
+          <span>请填写相关资料申请认证</span>
           <div style="text-align:center">
             <el-button type="primary" @click="toContact">
               去认证
@@ -179,7 +180,7 @@
       </div>
       <div class="car vanwee2">
         <div  style="margin-left: 15%">
-          <img src="../../../assets/img/zl/hexisDesignLogo.png" alt />
+          <img src="../../../assets/img/zl/rz.jpg" alt />
           <br />
         </div>
       </div>
@@ -318,12 +319,14 @@ export default {
 .wenziUp {
   margin-left: 32%;
   margin-top: 12%;
+  text-align: center;
 }
 .wenziUp span:nth-child(1) {
   line-height: 5rem;
   color: black;
   font-weight: 500;
-  font-size: 4.8rem;
+  font-size: 3.97rem;
+
 }
 .wenziUp span:nth-child(2) {
   color: #de0022;

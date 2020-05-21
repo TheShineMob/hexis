@@ -55,7 +55,7 @@
       },
       moreTitleTopP: {
         type: String,
-        default: "身体防护"
+        default: "BODYFENCE GLOSS"
       },
       learnMoreP: {
         type: String,

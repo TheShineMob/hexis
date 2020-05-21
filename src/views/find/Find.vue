@@ -3,7 +3,7 @@
     <el-row class="column-inner" style="height: 170px;display: flex; align-items: center">
       <el-col>
         <h2 style="font-size: 24px">BODYFENCE 认证授权店查询</h2>
-        <p>应用部门HEXIS已建立了认可的安装程序网络，以为其客户端提供了高性能和快速响应的服务。</p>
+<!--        <p>应用部门HEXIS已建立了认可的安装程序网络，以为其客户端提供了高性能和快速响应的服务。</p>-->
       </el-col>
     </el-row>
     <el-row class="column-inner">
@@ -16,7 +16,7 @@
         <!--:active-position-p="activeItem"-->
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" v-if="contactFormHidden" style="display: flex;flex-wrap: wrap;padding-left: 2px;overflow-y:auto;max-height: 900px;overflow-x: hidden;border-right: #efefef 1px solid;border-left: #efefef 1px solid">
-        <brief v-if="isRouterAlive" v-for="(item,index) of selectPosition" :key="index"
+        <brief v-show="isRouterAlive" v-for="(item,index) of selectPosition" :key="index"
                :brief-title-p="item.name"
                :brief-address-p="item.province+' '+item.city+' '+item.area+' '+item.address"
                :brief-img-url-p="item.doorimageurl"
@@ -63,7 +63,7 @@
               <textarea name="massage"  id="" cols="30" rows="10" style="width: 100%;resize:none;" v-model="message" placeholder="请详细说明您的情况..." ></textarea>
             </el-col>
           </el-row>
-          <a :href="emailHref"><input type="submit" class="contact_inner contact_send" @click="send"></input></a>
+          <a :href="emailHref"><input type="submit" class="contact_inner contact_send" @click="send" /></a>
         </form>
       </el-col>
     </el-row>
@@ -106,11 +106,7 @@
         company: '',
         phone: '',
         message: '',
-        emailHref:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=BODYFENCE咨询&body="+
-            `姓名：`+this.firstName+this.lastName+"%0a%0d"+`
-              国家：`+this.company+"%0a%0d"+`
-              电话：`+this.phone+"%0a%0d"+`
-              详细情况: `+this.message
+        href:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=BODYFENCE咨询&body="
       }
     },
     created() {
@@ -196,6 +192,9 @@
         return (name) => {
           return this.activeItemName === name;
         }
+      },
+      emailHref: function () {
+        return this.href+ "姓名："+this.firstName+this.lastName+"%0a%0d"+"国家："+this.company+"%0a%0d"+"电话："+this.phone+"%0a%0d"+"详细情况: "+this.message;
       }
     }
   }

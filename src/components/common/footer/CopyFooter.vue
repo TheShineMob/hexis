@@ -4,7 +4,7 @@
       <a href="https://mdbootstrap.com/bootstrap-tutorial/"></a>
       <a href="https://www.bodyfence.net">Bodyfence PPF</a>
       ©  2020
-      - Paint Protection - Hexis S.A All Rights Reserved.
+      - 版权所有 -  宁波索凡进出口有限公司—东南亚总代理.
     </div>
   </div>
 </template>

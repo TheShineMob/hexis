@@ -229,6 +229,10 @@
     margin-left: 15px;
     margin-bottom: 9px;
   }
+  .inline-input {
+    width: 100%;
+    height: 100%;
+  }
   .mapTitle {
     font-size: 22px;
     font-weight: 900;

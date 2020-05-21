@@ -4,11 +4,11 @@
             <img  id="company_logo" :src='company.logo' alt="company_logo" >
         </div>
         <br>
-        
+
         <div class="company_messages">
             <p >
                 <strong >地址：</strong>
-                 <span v-html="company.address"></span>   
+                 <span v-html="company.address"></span>
                 <br>
             </p>
             <p>
@@ -33,7 +33,7 @@ export default {
 
         }
     },
-    
+
     props:{
         company:{
             type:Object,
@@ -75,7 +75,10 @@ img{
     padding-left: 0;
     padding-right: 0;
 }
-
+  .company_messages p{
+    font-size: 1.2rem;
+    /*text-align: center;*/
+  }
 
 
 

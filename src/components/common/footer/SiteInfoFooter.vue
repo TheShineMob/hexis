@@ -1,11 +1,11 @@
 <template>
   <div id="site-info-footer">
-    <img src="~@/assets/img/footer/Bodyfence_net-2.svg" width="250px" alt="">
+    <img src="~@/assets/img/footer/hexis.png" width="250px" alt="">
     <div class="container">
       <div class="link">
         <p>
           <br>
-          HEXIS manufacturer of self-adhesives films for sign making and digital printing since 1989. |<a href="https://beta.bodyfence.net/terms-of-use/"> Terms of use </a>"|<a href="https://beta.bodyfence.net/privacy-policy/">Privacy policy </a>| Contact us HEXIS Group of Companies - ZI Horizons Sud - CS970003 - F34118 FRONTIGNAN CEDEX FRANCE
+         <a href="https://beta.bodyfence.net/terms-of-use/"> 使用条款 </a>"|<a href="https://beta.bodyfence.net/privacy-policy/">隐私策略 </a>| 请与我们联系 - 宁波索凡进出口有限公司 - 宁波市江北区洪发路18号 - 400-096-1989 - so-fine@hexis.cn
         </p>
       </div>
     </div>

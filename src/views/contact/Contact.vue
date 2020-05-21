@@ -216,20 +216,25 @@ export default {
       email:"",
       phone: "",
       nideyijian: "",
-      emailHref:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=联系我们&body="+
-          "姓名："+this.lastName+this.firstName+
-          "%0a%0d 公司名：" + this.companyName +
-          "%0a%0d 地  址：" + this.cAddress +
-          "%0a%0d 邮政编码：" + this.zip +
-          "%0a%0d 邮箱地址：" + this.email +
-          "%0a%0d 电话号码：" + this.phone +
-          "%0a%0d 你的意见：" + this.nideyijian
+      href:"mailto:so-fine@hexis.cn?cc=791557345@qq.com&subject=联系我们&body="
     };
   },
 
   methods: {
     submit: function() {
       location = this.emailHref;
+    }
+  },
+  computed: {
+    emailHref: function () {
+      return this.href +
+          "姓名："+this.lastName+this.firstName+
+          "%0a%0d 公司名：" + this.companyName +
+          "%0a%0d 地  址：" + this.cAddress +
+          "%0a%0d 邮政编码：" + this.zip +
+          "%0a%0d 邮箱地址：" + this.email +
+          "%0a%0d 电话号码：" + this.phone +
+          "%0a%0d 你的意见：" + this.nideyijian;
     }
   },
 
