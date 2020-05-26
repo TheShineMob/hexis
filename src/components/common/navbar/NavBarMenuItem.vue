@@ -52,6 +52,7 @@
     height: 55px;
     color: rgba(0,0,0,0.5);
     text-align: left;
+    font-weight: 200;
   }
 
   .nav-bar-menu-item a {

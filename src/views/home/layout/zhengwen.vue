@@ -29,7 +29,7 @@
     <div class="line_02 ">
       <div class="wenzi vanwee2">
         <div class="wenziUp">
-          <span>
+          <span id="why">
            选择BODYFENCE的理由?
             <br />
             <br />
@@ -634,4 +634,20 @@ export default {
   body{
     overflow-x: hidden !important;
   }
+  #why {
+    white-space: nowrap;
+  }
+  @media all and (max-width: 1200px){
+    #why {
+      font-size: 3rem;
+    }
+  }
+
+  @media  all and (max-width: 500px) {
+    #why {
+      font-size: 4rem;
+      white-space: unset;
+    }
+  }
+
 </style>
